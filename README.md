@@ -1,4 +1,4 @@
-### The NodeJS Master Class
+### The course follow repo
 
-Repo to follow along the course
+A repo to follow along the various coding courses
 
