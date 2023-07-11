@@ -12,3 +12,13 @@ def meetup_list_view(request):
         'show_meetups': True,
         'meetups': meetups,
     })
+
+
+def meetup_detail_view(request, meetup_slug):
+    meetup = {
+        'title': 'A First Meetup',
+        'description': 'This is the first meetup!'
+    }
+    return render(request, 'meetups/details.html', {
+        'meetup': meetup
+    })

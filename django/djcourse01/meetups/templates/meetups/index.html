@@ -1,45 +1,28 @@
+{% extends 'meetups/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Meetups</title>
-    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}"/>
+
+{% block page_title %} All Meetups {% endblock %}
+
+{% block page_css %}
     <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}"/>
-    <link rel="stylesheet" href="{% static 'meetups/styles/meetup-details.css' %}"/>
-    <link rel="stylesheet" href="{% static 'meetups/styles/reg-confirm.css' %}"/>
-</head>
-<body>
-<header id="main-header">
-    <nav id="main-logo"><a href="/meetups">D-Meetups</a></nav>
-    <h1>Great meetups coming up!</h1>
+{% endblock %}
+
+{% block heading_main %}
+    Great meetups coming up!
+{% endblock %}
+
+{% block heading_extra %}
     <p>Find the one that best suits your needs</p>
-</header>
-<main>
+{% endblock %}
+
+{% block body %}
     <section>
         <h2>Upcoming Meetups</h2>
         <ol>
             {% for m in meetups %}
-                <li class="meetup-item">
-                    <article>
-                        <div class="meetup-summary">
-                            <div class="meetup-image">
-                                <img src="" alt="=">
-                            </div>
-                            <div class="meetup-detail">
-                                <h3>{{m.title}}</h3>
-                                <address>{{m.location}}</address>
-                            </div>
-                        </div>
-                        <div class="meetup-actions">
-                            <a href="" class="btn">More Details</a>
-                        </div>
-                    </article>
-                </li>
+            {% include 'meetups/item.html' with data=m%}
             {% endfor %}
         </ol>
     </section>
-</body>
-</html>
+{% endblock %}
