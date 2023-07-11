@@ -12,16 +12,27 @@ python -m pip install django
 
 ### Django Project Commands
 
-create a project
+Create a project
 
 `django-admin startproject djcourse01`
 
 ### Django Project Commands
 
-create an app
+Create an app
 
 `python manage.py startapp meetups`
 
-run dev server
+Run dev server
 
 `python manage.py runserver`
+
+Migrations
+
+`python manage.py makemigrations`
+
+`python manage.py migrate`
+
+Admin
+
+`python manage.py createsuperuser`
+`admin@hello`

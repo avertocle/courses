@@ -9,30 +9,35 @@
 {% endblock %}
 
 {% block heading_main %}
-    Great meetups coming up!
+    {% if error %}
+        No such meetup found. {{ meetup.title }}
+    {% else %}
+        {{ meetup.title }}
+    {% endif %}
 {% endblock %}
 
-{% block heading_extra %}
-    <p>Find the one that best suits your needs</p>
-{% endblock %}
+{% block heading_extra %}{% endblock %}
 
 {% block body %}
-        <article>
-            <img src="" alt="">
-            <section id="location">
-                <h2>Meetup Location</h2>
-                <address>This meetup takes place in <span>{{meetup.location}}</span>{{meetup.address}}</address>
-            </section>
-            <section id="details">
-                <h2>Meetup Description</h2>
-                <p>{{meetup.description}}</p>
-                <footer>
-                    <p><a href="">Contact Us</a> for more details </p>
-                </footer>
-            </section>
-            <section id="registration">
-                <h2>Join Us!</h2>
-                FORM
-            </section>
-        </article>
+    {% if not error %}
+            <article>
+                <img src="" alt="">
+                <section id="location">
+                    <h2>Meetup Location</h2>
+                    <address>This meetup takes place in <span>{{meetup.location}}</span>{{meetup.address}}</address>
+                </section>
+                <section id="details">
+                    <h2>Meetup Description</h2>
+                    <p>{{meetup.description}}</p>
+                    <footer>
+                        <p><a href="">Contact Us</a> for more details </p>
+                    </footer>
+                </section>
+                <section id="registration">
+                    <h2>Join Us!</h2>
+                    FORM
+                </section>
+            </article>
+    {% endif %}
 {% endblock %}
+
