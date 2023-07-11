@@ -21,3 +21,7 @@ create a project
 create an app
 
 `python manage.py startapp meetups`
+
+run dev server
+
+`python manage.py runserver`
