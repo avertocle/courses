@@ -7,10 +7,11 @@
             <div class="meetup-details">
                 <h3>{{ data.title }}</h3>
                 <address>{{data.location}}</address>
+                <p>{{data.date}}</p>
             </div>
         </div>
         <div class="meetup-actions">
-            <a href="{% url 'meetup-detail' data.slug %}" class="btn">More Details</a>
+            <a href="{% url 'meetup-details' data.slug %}" class="btn">More Details</a>
         </div>
     </article>
 </li>

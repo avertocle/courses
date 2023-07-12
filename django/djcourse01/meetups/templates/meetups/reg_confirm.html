@@ -1,0 +1,37 @@
+{% extends 'meetups/base.html' %}
+
+{% load static %}
+
+{% block page_title %} Registration Confirmed {% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static 'meetups/styles/meetup-details.css' %}"/>
+{% endblock %}
+
+{% block heading_main %}
+    {% if error %}
+        No such meetup found. {{ meetup.title }}
+    {% else %}
+        {{ meetup.title }}
+    {% endif %}
+{% endblock %}
+
+{% block heading_extra %}{% endblock %}
+
+{% block body %}
+    {% if not error %}
+            <article>
+                <img id="main-image" src="{{ meetup.image.url }}" alt="meetup image">
+                <section id="location">
+                    <h2>Meetup Location</h2>
+                    <address><span>{{meetup.location.name}}</span>, {{meetup.location.address}}</address>
+                </section>
+                <section>
+                    <p>Registration confirmed for : </p>
+                    <p>{{participant.name}}</p>
+                    <p>{{participant.email}}</p>
+                </section>
+            </article>
+    {% endif %}
+{% endblock %}
+

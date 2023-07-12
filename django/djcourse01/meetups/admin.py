@@ -1,14 +1,16 @@
 from django.contrib import admin
 
-from meetups.models import Meetup, Location
+from meetups.models import Meetup, Location, Participant
 
 
 # Register your models here.
 
 class MeetupAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug']
+    list_display = ['title', 'slug', 'date']
     list_filter = ['location']
-    prepopulated_fields = {'slug':['title']}
+    prepopulated_fields = {'slug': ['title']}
+
 
 admin.site.register(Meetup, MeetupAdmin)
 admin.site.register(Location)
+admin.site.register(Participant)
